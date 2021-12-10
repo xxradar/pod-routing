@@ -33,7 +33,7 @@ route delete default
 route add default gw 10.0.0.110 dev vxlan1
 ```
 
-### Create a client1 pod
+### Create a client2 pod
 ```
 kubectl run -it --rm  --privileged=true --image xxradar/hackon client2
 ip link add vxlan1 type vxlan id 2 remote <gateway_pod_ip>  dstport 4789 dev eth0
