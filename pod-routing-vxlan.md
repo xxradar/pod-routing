@@ -1,4 +1,4 @@
-# pod-routing
+# pod-routing-vxlan
 
 
 ### Create a gateway pod 
