@@ -1,8 +1,26 @@
+### Change ippool cidr (testing only)
 ```
 kubectl  edit  ippool default-ipv4-ippool
  .... change CIDR to  cidr: 192.168.2.0/24
 ```
-Install calicoctl and create addition ippool
+### Install calicoctl
+```
+curl -o kubectl-calico -O -L  "https://github.com/projectcalico/calicoctl/releases/download/v3.21.2/calicoctl" 
+chmod +x kubectl-calico
+sudo mv ./calicoctl /usr/local/bin/calicoctl
+```
+```
+sudo mkdir /etc/calico
+sudo vi /etc/calico/calicoctl.cfg 
+
+apiVersion: projectcalico.org/v3
+kind: CalicoAPIConfig
+metadata:
+spec:
+  datastoreType: "kubernetes"
+  kubeconfig: "/home/ubuntu/.kube/config"
+```
+### create addition ippool
 
 ```
 calicoctl apply -f -<<EOF
