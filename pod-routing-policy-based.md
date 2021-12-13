@@ -75,5 +75,10 @@ sudo ip route flush cache
 ```
 ### Create testing pod
 ```
-kubectl run --rm -it debug14 --image xxradar/hackon  --namespace internal-ns
+kubectl run --rm -it debug --image xxradar/hackon  --namespace internal-ns
 ```
+
+
+### Remark
+This will probably only work on a 1 node k8s cluster. Creating VXLAN tunnels between nodes and router node can solve this.
+
