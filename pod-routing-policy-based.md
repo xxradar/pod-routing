@@ -20,7 +20,7 @@ spec:
   datastoreType: "kubernetes"
   kubeconfig: "/home/ubuntu/.kube/config"
 ```
-### create addition ippool
+### Create addition ippool
 
 ```
 calicoctl apply -f -<<EOF
@@ -35,7 +35,7 @@ spec:
   natOutgoing: false
 EOF
 ```
-
+### Create a router pod in default namespace (in default pool)
 ```
 kubectl run -it --rm --privileged=true --image xxradar/hackon router
     sysctl net.ipv4.ip_forward=1
@@ -46,12 +46,14 @@ kubectl run -it --rm --privileged=true --image xxradar/hackon router
     iptables -L -t nat  #shoud show the SNAT rule
     tcpdump -i eth0 
 ```
+### In an other terminal 
 ```
 kubectl create namespace internal-ns
 ```
 ```
 kubectl annotate namespace internal-ns "cni.projectcalico.org/ipv4pools"='["internal-pool"]'
 ```
+### Create sourced based routing rules
 ```
 sudo vi /etc/iproute2/rt_tables
  ... add a line... 
@@ -60,17 +62,18 @@ sudo vi /etc/iproute2/rt_tables
 sudo ip rule add from 192.168.3.0/24 table pod-route     # Degug pod ip-address
 
 
-$ sudo ip rule ls
+sudo ip rule ls
 0:	from all lookup local
 32765:	from 192.168.3.0/24 lookup pod-route
 32766:	from all lookup main
 32767:	from all lookup default
 
 
-$ sudo ip route add default via 192.168.2.5 dev cali09d96a0e9e0 table pod-route
+sudo ip route add default via 192.168.2.5 dev cali09d96a0e9e0 table pod-route
 
-$ sudo ip route flush cache
-
-
-
+sudo ip route flush cache
+```
+### Create testing pod
+```
+kubectl run --rm -it debug14 --image xxradar/hackon  --namespace internal-ns
 ```
