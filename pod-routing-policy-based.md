@@ -20,7 +20,7 @@ spec:
   datastoreType: "kubernetes"
   kubeconfig: "/home/ubuntu/.kube/config"
 ```
-### Create addition ippool
+### Create additional ippool
 
 ```
 calicoctl apply -f -<<EOF
