@@ -1,5 +1,5 @@
 ## Additional
-In terminal 1:
+In **terminal 1**:
 ```
 unshare --user --map-root-user --uts --pid --fork --net --mount-proc
 ```
