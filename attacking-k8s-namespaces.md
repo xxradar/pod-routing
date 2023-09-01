@@ -59,6 +59,10 @@ $ sudo ip netns list
 new_namespace_139809
 ...
 ```
+Now this should work ...
+```
+sudo ip netns exec new_namespace_139809 ip a
+```
 Note: https://gist.github.com/cfra/39f4110366fa1ae9b1bddd1b47f586a3
 ## Notes
 Examples
