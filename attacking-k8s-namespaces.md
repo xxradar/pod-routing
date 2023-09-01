@@ -48,6 +48,7 @@ sudo ps -ax -n -o pid,netns,utsns,ipcns,mntns,pidns,cmd | grep "sleep"
  143367 4026533026 4026533024 4026531839 4026533023 4026533025 sleep 777777
 ...
 ```
+Note that both processes share the same namespaces<br>
 Notes: https://www.redhat.com/sysadmin/pid-namespace <br>
 ## Setting a ns name ...
 On the host
