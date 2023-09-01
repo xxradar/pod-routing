@@ -36,6 +36,7 @@ root           1  0.0  0.0   7236   580 pts/0    S    15:15   0:00 sleep 666666
 root           2  0.0  0.0   9944  4928 pts/0    S    15:19   0:00 -bash
 root           7  0.0  0.0  10620  3400 pts/0    R+   15:19   0:00 ps aux
 ```
+Add a process for demo purposes.
 ```
 sleep 777777 &
 ```
