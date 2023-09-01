@@ -56,7 +56,7 @@ sudo ip link  del $PREFIX"-host
 ## Additional
 In terminal 1:
 ```
-unshare -Urpf --mount-proc
+unshare --user --map-root-user --pid --fork --net --mount-proc
 ```
 ```
 sleep 8888 &
