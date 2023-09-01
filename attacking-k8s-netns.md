@@ -28,7 +28,7 @@ sudo ip addr add $GW/30 dev $PREFIX"-host"
 sudo ip link set $PREFIX"-host" up
 
 # routing
-sudo ip netns exec $NS ip route add 0.0.0.0/0 via 192.168.122.33
+sudo ip netns exec $NS ip route add 0.0.0.0/0 via $GW
 sudo ip netns exec $NS ip route
 sudo ip route add $IP/32 scope link dev $PREFIX"-host"
 
