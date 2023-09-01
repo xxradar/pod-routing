@@ -14,7 +14,7 @@ unshare --user --map-root-user --uts --pid --fork --net --mount-proc sleep 66666
 ```
 
 In **terminal 2**: <br>
-Find the PID for the `-bash` process in the newly created namespaces.<br>
+Find the PID for the `-bash` or `sleep` process in the newly created namespaces.<br>
 This is similar as the `pause` container in kubernetes.
 ```
 lsns | grep "sleep 666666"
