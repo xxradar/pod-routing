@@ -108,7 +108,7 @@ sudo ps -ax -n -o pid,netns,utsns,ipcns,mntns,pidns,cmd | grep nc
 ...
 ```
 Notes: https://www.redhat.com/sysadmin/pid-namespace <br>
-Setting a ns name ....<br>
+## Setting a ns name ...
 On the host
 ```
 sudo touch /run/netns/new_namespace_128634
