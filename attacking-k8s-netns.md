@@ -117,7 +117,7 @@ unshare --user --map-root-user --uts --pid --fork --net --mount-proc bash --norc
 sudo touch /run/netns/new_namespace_128634
 sudo mount -o bind /proc/128634/ns/net /run/netns/new_namespace_128634
 ```
-````
+```
 $ sudo ip netns list
 ...
 new_namespace_128634
