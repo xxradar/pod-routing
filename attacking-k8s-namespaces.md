@@ -22,6 +22,7 @@ lsns | grep "sleep 666666"
 4026533025 pid         1 139809 ubuntu sleep 666666
 ...
 ```
+Let's enter the namespace ...
 ```
 sudo nsenter -t 139809  -a
 ```
