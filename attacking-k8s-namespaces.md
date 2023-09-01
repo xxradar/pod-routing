@@ -4,14 +4,15 @@ This will create shell in newly created Linux namespaces.
 ```
 unshare --user --map-root-user --uts --pid --fork --net --mount-proc
 ```
-or alternatively
-```
-unshare --user --map-root-user --uts --pid --fork --net --mount-proc sleep 666666
-```
 Let's run a simple command so we can easily identify processes and namespaces.
 ```
 sleep 8888 &
 ```
+or alternatively
+```
+unshare --user --map-root-user --uts --pid --fork --net --mount-proc sleep 666666
+```
+
 In **terminal 2**: <br>
 Find the PID for the `-bash` process in the newly created namespaces.<br>
 This is similar as the `pause` container in kubernetes.
