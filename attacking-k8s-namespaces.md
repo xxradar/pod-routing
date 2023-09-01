@@ -27,9 +27,6 @@ Let's enter the namespace ...
 sudo nsenter -t 139809  -a
 ```
 ```
-ps aux
-```
-```
 root@newhostname:/# ps aux
 USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
 root           1  0.0  0.0   7236   580 pts/0    S    15:15   0:00 sleep 666666
