@@ -57,6 +57,7 @@ sudo ip link  del $PREFIX"-host
 In terminal 1:
 ```
 unshare --user --map-root-user --uts --pid --fork --net --mount-proc
+unshare --user --map-root-user --uts --pid --fork --net --mount-proc bash --norc -c '(sleep 555 &) && (ps a &) && sleep 999' &
 ```
 ```
 sleep 8888 &
