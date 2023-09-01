@@ -50,17 +50,18 @@ Notes: https://www.redhat.com/sysadmin/pid-namespace <br>
 ## Setting a ns name ...
 On the host
 ```
-unshare --user --map-root-user --uts --pid --fork --net --mount-proc bash --norc -c '(sleep 555 &) && (ps a &) && sleep 999' &
-```
-
-```
-sudo touch /run/netns/new_namespace_128634
-sudo mount -o bind /proc/128634/ns/net /run/netns/new_namespace_128634
+sudo touch /run/netns/new_namespace_139809
+sudo mount -o bind /proc/139809/ns/net /run/netns/new_namespace_139809
 ```
 ```
 $ sudo ip netns list
 ...
-new_namespace_128634
+new_namespace_139809
 ...
 ```
 Note: https://gist.github.com/cfra/39f4110366fa1ae9b1bddd1b47f586a3
+## Notes
+Examples
+```
+unshare --user --map-root-user --uts --pid --fork --net --mount-proc bash --norc -c '(sleep 555 &) && (ps a &) && sleep 999' &
+```
