@@ -106,3 +106,4 @@ sudo ps -ax -n -o pid,netns,utsns,ipcns,mntns,pidns,cmd | grep nc
   97966 4026531840 4026531838 4026531839 4026532787 4026532789 nc -l 9999
 ...
 ```
+Notes: https://www.redhat.com/sysadmin/pid-namespace
