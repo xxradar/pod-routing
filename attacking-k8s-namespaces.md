@@ -10,7 +10,7 @@ sleep 8888 &
 ```
 or alternatively
 ```
-unshare --user --map-root-user --uts --pid --fork --net --mount-proc sleep 666666
+unshare --user --map-root-user --uts --pid --fork --net --mount-proc sleep 666666 &
 ```
 
 In **terminal 2**: <br>
@@ -31,35 +31,19 @@ ps aux
 ```
 root@newhostname:/# ps aux
 USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
-root           1  0.0  0.0  10048  5012 pts/2    S+   13:50   0:00 -bash
-root          11  0.0  0.0   3260   828 pts/2    S    13:50   0:00 nc -l 8989
-root          12  0.0  0.0   9944  5060 pts/4    S    13:53   0:00 -bash
-root          17  0.0  0.0  10620  3324 pts/4    R+   13:53   0:00 ps aux
-root@newhostname:/#
+root           1  0.0  0.0   7236   580 pts/0    S    15:15   0:00 sleep 666666
+root           2  0.0  0.0   9944  4928 pts/0    S    15:19   0:00 -bash
+root           7  0.0  0.0  10620  3400 pts/0    R+   15:19   0:00 ps aux
 ```
 ```
-nc -l 9999
+sleep 777777 &
 ```
-In terminal 1:
+Exit or use a different terminal.
 ```
-ps aux
-```
-```
-root@newhostname:~# ps aux
-USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
-root           1  0.0  0.0  10048  5012 pts/2    S    13:50   0:00 -bash
-root          11  0.0  0.0   3260   828 pts/2    S    13:50   0:00 nc -l 8989
-root          12  0.0  0.0   9944  5060 pts/4    S+   13:53   0:00 -bash
-root          18  0.0  0.0   3260   764 pts/4    S    13:54   0:00 nc -l 9999
-root          20  0.0  0.0  10620  3204 pts/2    R+   13:54   0:00 ps aux
-root@newhostname:~#
-```
-In terminal 3:
-```
-sudo ps -ax -n -o pid,netns,utsns,ipcns,mntns,pidns,cmd | grep nc
+sudo ps -ax -n -o pid,netns,utsns,ipcns,mntns,pidns,cmd | grep "sleep"
 ...
-  96176 4026531840 4026531838 4026531839 4026532787 4026532789 nc -l 8989
-  97966 4026531840 4026531838 4026531839 4026532787 4026532789 nc -l 9999
+ 139809 4026533026 4026533024 4026531839 4026533023 4026533025 sleep 666666
+ 143367 4026533026 4026533024 4026531839 4026533023 4026533025 sleep 777777
 ...
 ```
 Notes: https://www.redhat.com/sysadmin/pid-namespace <br>
