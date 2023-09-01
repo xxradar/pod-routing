@@ -107,4 +107,17 @@ sudo ps -ax -n -o pid,netns,utsns,ipcns,mntns,pidns,cmd | grep nc
   97966 4026531840 4026531838 4026531839 4026532787 4026532789 nc -l 9999
 ...
 ```
-Notes: https://www.redhat.com/sysadmin/pid-namespace
+Notes: https://www.redhat.com/sysadmin/pid-namespace <br>
+Setting a ns name ....<br>
+On the host
+```
+sudo touch /run/netns/new_namespace_128634
+sudo mount -o bind /proc/128634/ns/net /run/netns/new_namespace_128634
+```
+````
+$ sudo ip netns list
+...
+new_namespace_128634
+...
+```
+Note: https://gist.github.com/cfra/39f4110366fa1ae9b1bddd1b47f586a3
