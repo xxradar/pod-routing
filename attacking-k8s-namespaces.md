@@ -17,10 +17,13 @@ In **terminal 2**: <br>
 Find the PID for the `-bash` process in the newly created namespaces.<br>
 This is similar as the `pause` container in kubernetes.
 ```
-lsns | grep bash
+lsns | grep "sleep 666666"
+...
+4026533025 pid         1 139809 ubuntu sleep 666666
+...
 ```
 ```
-sudo nsenter -t 109110  -a
+sudo nsenter -t 139809  -a
 ```
 ```
 ps aux
