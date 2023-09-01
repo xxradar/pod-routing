@@ -56,7 +56,7 @@ sudo ip link  del $PREFIX"-host
 ## Additional
 In terminal 1:
 ```
-unshare --user --map-root-user --pid --fork --net --mount-proc
+unshare --user --map-root-user --uts --pid --fork --net --mount-proc
 ```
 ```
 sleep 8888 &
@@ -67,7 +67,7 @@ Find the PID for the `-bash` process in the newly created namespaces
 lsns | grep bash
 ```
 ```
-sudo nsenter -t 89843  -a
+sudo nsenter -t 109110  -a
 ```
 ```
 ps aux
