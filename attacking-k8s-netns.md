@@ -1,6 +1,5 @@
-## demo and research script
-Testing is done with calico
-
+## Demo and research script
+Testing is done with calico cni
 
 ```
 export PREFIX="pod4"
