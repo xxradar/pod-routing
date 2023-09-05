@@ -14,7 +14,7 @@ sudo ip netns add $NS
 sudo ip link add $PREFIX"-host" type veth peer name $PREFIX"-client"
 # sudo ip link show
 
-# Move one interface of the pair to the networkwork namespace
+# Move one interface of the pair to the network namespace
 sudo ip link set $PREFIX"-client" netns $NS
 
 # Configure the network interface in netns
